@@ -1,0 +1,4 @@
+Smart LifeWatching - Smart Lifemonitor, inc. (LifeWatching line)
+Arduino Uno prototype based on the ModestIoT nano-framework.
+
+Simulate this project on https://wokwi.com

@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Smart Lifemonitor, inc. - LifeWatching team",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hx711", "id": "weightSensor", "top": -150, "left": -60, "attrs": { "type": "50kg" } },
+    { "type": "wokwi-potentiometer", "id": "heartRateSensor", "top": 260, "left": -120, "attrs": {} },
+    { "type": "wokwi-lcd2004", "id": "display", "top": -220, "left": 320, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-led", "id": "weightLed", "top": -110, "left": 320, "attrs": { "color": "blue", "label": "Weight > 80" } },
+    { "type": "wokwi-led", "id": "heartRateLowLed", "top": -110, "left": 380, "attrs": { "color": "blue", "label": "Low" } },
+    { "type": "wokwi-led", "id": "heartRateNormalLed", "top": -110, "left": 430, "attrs": { "color": "green", "label": "Normal" } },
+    { "type": "wokwi-led", "id": "heartRateHighLed", "top": -110, "left": 480, "attrs": { "color": "red", "label": "High" } },
+    { "type": "wokwi-resistor", "id": "weightResistor", "top": -30, "left": 310, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "lowResistor", "top": -30, "left": 370, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "normalResistor", "top": -30, "left": 420, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "highResistor", "top": -30, "left": 470, "rotate": 90, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "weightSensor:VCC", "uno:5V", "red", [] ],
+    [ "weightSensor:GND", "uno:GND.1", "black", [] ],
+    [ "weightSensor:DT", "uno:3", "green", [] ],
+    [ "weightSensor:SCK", "uno:2", "blue", [] ],
+
+    [ "heartRateSensor:VCC", "uno:5V", "red", [] ],
+    [ "heartRateSensor:GND", "uno:GND.2", "black", [] ],
+    [ "heartRateSensor:SIG", "uno:A0", "orange", [] ],
+
+    [ "display:VCC", "uno:5V", "red", [] ],
+    [ "display:GND", "uno:GND.2", "black", [] ],
+    [ "display:SDA", "uno:A4", "blue", [] ],
+    [ "display:SCL", "uno:A5", "green", [] ],
+
+    [ "weightLed:A", "weightResistor:1", "blue", [] ],
+    [ "weightResistor:2", "uno:8", "blue", [] ],
+    [ "weightLed:C", "uno:GND.1", "black", [] ],
+    [ "heartRateLowLed:A", "lowResistor:1", "blue", [] ],
+    [ "lowResistor:2", "uno:9", "blue", [] ],
+    [ "heartRateLowLed:C", "uno:GND.1", "black", [] ],
+    [ "heartRateNormalLed:A", "normalResistor:1", "green", [] ],
+    [ "normalResistor:2", "uno:10", "green", [] ],
+    [ "heartRateNormalLed:C", "uno:GND.1", "black", [] ],
+    [ "heartRateHighLed:A", "highResistor:1", "red", [] ],
+    [ "highResistor:2", "uno:11", "red", [] ],
+    [ "heartRateHighLed:C", "uno:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

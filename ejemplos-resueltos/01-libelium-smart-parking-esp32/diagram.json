@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Libelium Smart Cities Team - Smart Parking Spot S1",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "occupancyDetector", "top": -160, "left": -200, "attrs": { "distance": "300" } },
+    { "type": "wokwi-pir-motion-sensor", "id": "maneuverMotionSensor", "top": -150, "left": 120, "attrs": {} },
+    { "type": "wokwi-servo", "id": "bollardServo", "top": 60, "left": 260, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "statusDisplay", "top": 230, "left": 180, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-rgb-led", "id": "statusLed", "top": 120, "left": -190, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-resistor", "id": "redResistor", "top": 200, "left": -260, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "greenResistor", "top": 200, "left": -210, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "blueResistor", "top": 200, "left": -160, "rotate": 90, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "occupancyDetector:VCC", "esp:5V", "red", [] ],
+    [ "occupancyDetector:GND", "esp:GND.1", "black", [] ],
+    [ "occupancyDetector:TRIG", "esp:5", "orange", [] ],
+    [ "occupancyDetector:ECHO", "esp:18", "yellow", [] ],
+
+    [ "maneuverMotionSensor:VCC", "esp:5V", "red", [] ],
+    [ "maneuverMotionSensor:GND", "esp:GND.2", "black", [] ],
+    [ "maneuverMotionSensor:OUT", "esp:19", "purple", [] ],
+
+    [ "bollardServo:V+", "esp:5V", "red", [] ],
+    [ "bollardServo:GND", "esp:GND.2", "black", [] ],
+    [ "bollardServo:PWM", "esp:13", "orange", [] ],
+
+    [ "statusDisplay:VCC", "esp:5V", "red", [] ],
+    [ "statusDisplay:GND", "esp:GND.3", "black", [] ],
+    [ "statusDisplay:SDA", "esp:21", "blue", [] ],
+    [ "statusDisplay:SCL", "esp:22", "green", [] ],
+
+    [ "statusLed:COM", "esp:GND.1", "black", [] ],
+    [ "statusLed:R", "redResistor:1", "red", [] ],
+    [ "statusLed:G", "greenResistor:1", "green", [] ],
+    [ "statusLed:B", "blueResistor:1", "blue", [] ],
+    [ "redResistor:2", "esp:25", "red", [] ],
+    [ "greenResistor:2", "esp:26", "green", [] ],
+    [ "blueResistor:2", "esp:27", "blue", [] ]
+  ],
+  "dependencies": {}
+}

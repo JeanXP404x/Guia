@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Moen, Inc. - Nebia Spa Shower team",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "coldTemperatureSensor", "top": -160, "left": -150, "attrs": { "temperature": "15", "label": "Cold water" } },
+    { "type": "wokwi-dht22", "id": "hotTemperatureSensor", "top": -160, "left": -60, "attrs": { "temperature": "40", "label": "Hot water" } },
+    { "type": "wokwi-potentiometer", "id": "coldValve", "top": 200, "left": -200, "attrs": { "label": "Cold valve" } },
+    { "type": "wokwi-potentiometer", "id": "hotValve", "top": 200, "left": -100, "attrs": { "label": "Hot valve" } },
+    { "type": "wokwi-lcd1602", "id": "display", "top": -40, "left": 220, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "coldTemperatureSensor:VCC", "esp:3V3", "red", [] ],
+    [ "coldTemperatureSensor:GND", "esp:GND.1", "black", [] ],
+    [ "coldTemperatureSensor:SDA", "esp:15", "blue", [] ],
+    [ "hotTemperatureSensor:VCC", "esp:3V3", "red", [] ],
+    [ "hotTemperatureSensor:GND", "esp:GND.1", "black", [] ],
+    [ "hotTemperatureSensor:SDA", "esp:4", "orange", [] ],
+    [ "coldValve:VCC", "esp:3V3", "red", [] ],
+    [ "coldValve:GND", "esp:GND.2", "black", [] ],
+    [ "coldValve:SIG", "esp:34", "blue", [] ],
+    [ "hotValve:VCC", "esp:3V3", "red", [] ],
+    [ "hotValve:GND", "esp:GND.2", "black", [] ],
+    [ "hotValve:SIG", "esp:35", "orange", [] ],
+    [ "display:VCC", "esp:5V", "red", [] ],
+    [ "display:GND", "esp:GND.3", "black", [] ],
+    [ "display:SDA", "esp:21", "blue", [] ],
+    [ "display:SCL", "esp:22", "green", [] ]
+  ],
+  "dependencies": {}
+}

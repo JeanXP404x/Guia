@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "<Company> - <Your name>",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "sensor", "top": 200, "left": -150, "attrs": {} },
+    { "type": "wokwi-led", "id": "alertLed", "top": -100, "left": 200, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "alertResistor", "top": -20, "left": 190, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-lcd1602", "id": "display", "top": 60, "left": 220, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "sensor:VCC", "esp:3V3", "red", [] ],
+    [ "sensor:GND", "esp:GND.1", "black", [] ],
+    [ "sensor:SIG", "esp:34", "blue", [] ],
+    [ "alertLed:A", "alertResistor:1", "red", [] ],
+    [ "alertResistor:2", "esp:2", "red", [] ],
+    [ "alertLed:C", "esp:GND.2", "black", [] ],
+    [ "display:VCC", "esp:5V", "red", [] ],
+    [ "display:GND", "esp:GND.3", "black", [] ],
+    [ "display:SDA", "esp:21", "blue", [] ],
+    [ "display:SCL", "esp:22", "green", [] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,4 @@
+Smart Parking Spot S1 - Libelium Smart Cities
+ESP32 prototype based on the ModestIoT nano-framework.
+
+Simulate this project on https://wokwi.com

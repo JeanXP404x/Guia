@@ -1,0 +1,4 @@
+AquaSense Smart Tank Controller - AquaSense Tech
+ESP32 prototype based on the ModestIoT nano-framework.
+
+Simulate this project on https://wokwi.com
