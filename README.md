@@ -1,5 +1,5 @@
 # Guía
-Guía para resolver la Práctica Calificada 2. Todas las versiones del examen
+Guía para resolver la. Todas las versiones del examen
 (Libelium, AquaSense, Smart Lifemonitor, Moen...) siguen la misma plantilla:
 
 | Pregunta | Qué piden | Puntos | Qué se entrega |
