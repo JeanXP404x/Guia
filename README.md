@@ -31,3 +31,5 @@ guia-pc2-iot/
 2. **20 min**: Pregunta 1 (es la misma pregunta en todos los exámenes; solo cambia el caso).
 3. **60 min**: Pregunta 2, partiendo de `codigo-base/` y copiando lo que falte de `componentes/`.
 4. **10 min**: renombrar archivos, exportar el zip de Wokwi y revisar el checklist.
+https://wokwi.com/projects/481259834282887169
+
