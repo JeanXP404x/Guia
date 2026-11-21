@@ -1,5 +1,4 @@
-# Guía PC2 – Desarrollo de Soluciones IoT (1ASI0572)
-
+# Guía
 Guía para resolver la Práctica Calificada 2. Todas las versiones del examen
 (Libelium, AquaSense, Smart Lifemonitor, Moen...) siguen la misma plantilla:
 
