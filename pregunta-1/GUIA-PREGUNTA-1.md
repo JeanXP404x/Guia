@@ -1,4 +1,4 @@
-# Guía – Pregunta 1 (5 puntos)
+# Guía –
 
 ## Qué piden exactamente
 
